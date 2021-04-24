@@ -40,8 +40,8 @@ void longestPath(char *argv){
         }
     }
     printf("\nlongest path = %d\n", longestPath);
-    matrixDelete(readMatrix);
-    matrixDelete(verifiedMatrix);
+    matrixDelete(readMatrix, rows);
+    matrixDelete(verifiedMatrix, rows);
     free(validationQueue);
 }
 
