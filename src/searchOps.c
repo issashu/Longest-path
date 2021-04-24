@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "defines.h"
 #include "matrixOps.h"
 #include "queueOps.h"
 #include "fileParser.h"
@@ -24,7 +25,7 @@ void longestPath(char *argv){
     readMatrix = parseData(argv, &rows, &cols);
     verifiedMatrix = matrixInit(rows, cols);
 
-    //FIXME simplify code repetition with searchBFS
+  
     for (int x=0; x < rows; x++){
         for(int y=0; y < cols; y++) {
             if(!verifiedMatrix[x][y]) {
@@ -39,9 +40,9 @@ void longestPath(char *argv){
         }
     }
     printf("\nlongest path = %d\n", longestPath);
-    free(validationQueue);
     matrixDelete(readMatrix);
     matrixDelete(verifiedMatrix);
+    free(validationQueue);
 }
 
 int searchBFS(int rows, int cols) {
@@ -68,8 +69,8 @@ void checkNeighbors(int x, int y, int rows, int cols, int keyValue) {
     qNode *tempNode = NULL;
     int adjX = 0;
     int adjY = 0;
-    //FIXME Magic number here
-    for (int i=0; i<4; i++) {
+
+    for (int i = 0; i < DIRECTIONS; i ++) {
         adjX = x + rowDir[i];
         adjY = y + colDir[i];
         if(isValid(adjX,adjY,rows,cols, keyValue)) {

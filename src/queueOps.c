@@ -16,6 +16,8 @@ struct queue {
     struct qNode* back;
 };
 
+static void setQueueEnds(queue *baseQueue);
+
 /*NODE OPERATIONS START HERE*/
 qNode* NodeInit(char keyValue, int row, int col) {
     struct qNode *baseNode = (qNode*) malloc (sizeof(qNode));
@@ -70,7 +72,7 @@ void Enqueue(queue *baseQueue, qNode *baseNode) {
     }
 }
 
-//FIXME Beautify the function...
+
 void Dequeue(queue *baseQueue) {
     if (isEmpty(baseQueue)) {
         printf("The queue is empty. Nothing to de-queue!\n");

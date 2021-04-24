@@ -4,7 +4,7 @@
 #include "matrixOps.h"
 #include "fileParser.h"
 
-bool isChar(char c);
+static bool isChar(char c);
 
 char** parseData(char *argv, int *rows, int *cols) {
     char readChar = 'E';
